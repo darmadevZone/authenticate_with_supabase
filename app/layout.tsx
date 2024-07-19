@@ -1,3 +1,4 @@
+import SupbaseListener from "@/components/supabase-listener";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -16,7 +17,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <main className="flex min-h-screen flex-col">
+          {/* TODO: Server ComponentsとClient Componentsの切り替えを考えるべき
+            現状: SupabaseListenerはServer Components
+          */}
+          <SupbaseListener>
+            <div className="flex-1">{children}</div>
+            <footer className="container sticky bottom-0 h-16">Footer</footer>
+          </SupbaseListener>
+        </main>
+      </body>
     </html>
   );
 }

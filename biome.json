@@ -1,0 +1,8 @@
+{
+    "linter": "eslint",
+    "linters": {
+        "eslint": {
+            "config": ".eslintrc.json"
+        }
+    }
+}
